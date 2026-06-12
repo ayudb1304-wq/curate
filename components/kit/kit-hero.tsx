@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { AtSign, Globe, Mail, MapPin } from "lucide-react";
 
+import { FancyText } from "@/components/brand/fancy-text";
 import { Button } from "@/components/ui/button";
 import type { KitData } from "@/lib/kit/types";
 
@@ -60,7 +61,7 @@ export function KitHero({ kit }: { kit: KitData }) {
         </div>
 
         <h1 className="animate-in fade-in slide-in-from-bottom-4 fill-mode-both font-heading text-4xl font-semibold tracking-tight delay-100 duration-700 sm:text-5xl">
-          {kit.displayName}
+          <FancyText text={kit.displayName} />
         </h1>
 
         <p className="animate-in fade-in slide-in-from-bottom-4 fill-mode-both inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm text-muted-foreground delay-200 duration-700">

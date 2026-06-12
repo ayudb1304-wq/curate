@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { Mail } from "lucide-react";
 
+import { FancyText } from "@/components/brand/fancy-text";
 import { AudienceSection } from "@/components/kit/audience-section";
 import { CollabsSection } from "@/components/kit/collabs-section";
 import { ContentSection } from "@/components/kit/content-section";
@@ -68,7 +69,7 @@ export default async function KitPage({ params }: KitPageProps) {
         <Reveal>
           <section className="flex flex-col items-center gap-4 rounded-3xl bg-muted px-6 py-12 text-center">
             <h2 className="font-heading text-2xl font-semibold tracking-tight">
-              Want to work with {kit.displayName.split(" ")[0]}?
+              Want to work with <FancyText text={kit.displayName.split(" ")[0]} />?
             </h2>
             <p className="max-w-md text-sm text-muted-foreground">
               Rates above are a starting point. Send a brief with your product and
@@ -85,7 +86,7 @@ export default async function KitPage({ params }: KitPageProps) {
 
         <footer className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground">
           Live media kit powered by
-          <span className="font-medium text-foreground">Curately</span>
+          <FancyText text="Curately" className="font-heading font-semibold text-foreground" />
         </footer>
       </div>
 

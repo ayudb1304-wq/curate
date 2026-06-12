@@ -1,7 +1,8 @@
 import Link from "next/link";
 
-import { ArrowRight, BookUser, ReceiptText, Sparkles, Wallet } from "lucide-react";
+import { ArrowRight, BookUser, ReceiptText, Wallet } from "lucide-react";
 
+import { Wordmark } from "@/components/brand/wordmark";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -27,11 +28,8 @@ export default function HomePage() {
   return (
     <div className="flex min-h-svh flex-col">
       <nav className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="flex size-7 items-center justify-center rounded-lg bg-primary">
-            <Sparkles className="size-4 text-primary-foreground" />
-          </span>
-          <span className="font-heading text-base font-semibold">Curately</span>
+        <Link href="/">
+          <Wordmark />
         </Link>
         <div className="flex items-center gap-2">
           <Button asChild variant="ghost" size="sm">

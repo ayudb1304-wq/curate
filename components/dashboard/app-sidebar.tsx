@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { BookUser, ExternalLink, LayoutDashboard, ReceiptText, Sparkles } from "lucide-react";
+import { BookUser, ExternalLink, LayoutDashboard, ReceiptText } from "lucide-react";
 
+import { Wordmark } from "@/components/brand/wordmark";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
   Sidebar,
@@ -39,11 +40,8 @@ export function AppSidebar({ creator }: AppSidebarProps) {
   return (
     <Sidebar>
       <SidebarHeader>
-        <div className="flex items-center gap-2 px-2 py-1.5">
-          <span className="flex size-7 items-center justify-center rounded-lg bg-primary">
-            <Sparkles className="size-4 text-primary-foreground" />
-          </span>
-          <span className="font-heading text-base font-semibold">Curately</span>
+        <div className="px-2 py-1.5">
+          <Wordmark />
         </div>
       </SidebarHeader>
 

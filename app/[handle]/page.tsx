@@ -6,9 +6,11 @@ import { Mail } from "lucide-react";
 import { AudienceSection } from "@/components/kit/audience-section";
 import { CollabsSection } from "@/components/kit/collabs-section";
 import { ContentSection } from "@/components/kit/content-section";
-import { KitHeader } from "@/components/kit/kit-header";
+import { KitHero } from "@/components/kit/kit-hero";
 import { RateCardSection } from "@/components/kit/rate-card-section";
-import { StatsSection } from "@/components/kit/stats-section";
+import { Reveal } from "@/components/kit/reveal";
+import { StatsStrip } from "@/components/kit/stats-strip";
+import { StickyCta } from "@/components/kit/sticky-cta";
 import { Button } from "@/components/ui/button";
 import { getKitByHandle } from "@/lib/kit/data";
 
@@ -32,42 +34,62 @@ export default async function KitPage({ params }: KitPageProps) {
   if (!kit) notFound();
 
   return (
-    <main className="mx-auto flex w-full max-w-4xl flex-col gap-10 px-4 py-10 sm:px-6">
-      <KitHeader kit={kit} />
+    <main className="pb-24 sm:pb-0">
+      <KitHero kit={kit} />
 
-      {kit.metrics && <StatsSection metrics={kit.metrics} />}
-      {kit.audience && kit.metrics && (
-        <AudienceSection audience={kit.audience} source={kit.metrics.source} />
-      )}
-      {kit.metrics && (
-        <ContentSection content={kit.recentContent} source={kit.metrics.source} />
-      )}
+      <div className="mx-auto flex w-full max-w-4xl flex-col gap-14 px-4 pt-6 pb-12 sm:px-6 sm:pt-10">
+        {kit.metrics && (
+          <Reveal>
+            <StatsStrip metrics={kit.metrics} />
+          </Reveal>
+        )}
 
-      <div className="grid items-start gap-10 md:grid-cols-2">
-        <RateCardSection rateCard={kit.rateCard} />
-        <CollabsSection collabs={kit.collabs} />
+        {kit.audience && kit.metrics && (
+          <Reveal>
+            <AudienceSection audience={kit.audience} source={kit.metrics.source} />
+          </Reveal>
+        )}
+
+        {kit.metrics && (
+          <Reveal>
+            <ContentSection content={kit.recentContent} source={kit.metrics.source} />
+          </Reveal>
+        )}
+
+        <div className="grid items-start gap-14 md:grid-cols-2 md:gap-10">
+          <Reveal>
+            <RateCardSection rateCard={kit.rateCard} />
+          </Reveal>
+          <Reveal delay={100}>
+            <CollabsSection collabs={kit.collabs} />
+          </Reveal>
+        </div>
+
+        <Reveal>
+          <section className="flex flex-col items-center gap-4 rounded-3xl bg-muted px-6 py-12 text-center">
+            <h2 className="font-heading text-2xl font-semibold tracking-tight">
+              Want to work with {kit.displayName.split(" ")[0]}?
+            </h2>
+            <p className="max-w-md text-sm text-muted-foreground">
+              Rates above are a starting point. Send a brief with your product and
+              timeline to get a quote.
+            </p>
+            <Button asChild size="lg" className="rounded-full px-7">
+              <a href={`mailto:${kit.contactEmail}`}>
+                <Mail data-icon="inline-start" />
+                {kit.contactEmail}
+              </a>
+            </Button>
+          </section>
+        </Reveal>
+
+        <footer className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground">
+          Live media kit powered by
+          <span className="font-medium text-foreground">Curately</span>
+        </footer>
       </div>
 
-      <section className="flex flex-col items-center gap-4 rounded-2xl bg-muted px-6 py-10 text-center">
-        <h2 className="font-heading text-xl font-semibold">
-          Want to work with {kit.displayName.split(" ")[0]}?
-        </h2>
-        <p className="max-w-md text-sm text-muted-foreground">
-          Rates above are a starting point. Send a brief with your product and
-          timeline to get a quote.
-        </p>
-        <Button asChild size="lg">
-          <a href={`mailto:${kit.contactEmail}`}>
-            <Mail data-icon="inline-start" />
-            {kit.contactEmail}
-          </a>
-        </Button>
-      </section>
-
-      <footer className="flex items-center justify-center gap-1.5 pb-4 text-xs text-muted-foreground">
-        Live media kit powered by
-        <span className="font-medium text-foreground">Curately</span>
-      </footer>
+      <StickyCta name={kit.displayName} email={kit.contactEmail} rateCard={kit.rateCard} />
     </main>
   );
 }

@@ -178,6 +178,8 @@ export const mockContents: PhylloContent[] = [
     description: "5-minute morning skincare routine for oily skin",
     published_at: "2026-06-05T13:30:00.000Z",
     duration: 42,
+    thumbnail_url:
+      "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=800&auto=format&fit=crop",
     engagement: {
       like_count: 6230,
       dislike_count: null,
@@ -197,6 +199,8 @@ export const mockContents: PhylloContent[] = [
     format: "IMAGE",
     description: "Festive makeup look, full product list in caption",
     published_at: "2026-05-28T15:00:00.000Z",
+    thumbnail_url:
+      "https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800&auto=format&fit=crop",
     engagement: {
       like_count: 3120,
       dislike_count: null,
@@ -217,6 +221,8 @@ export const mockContents: PhylloContent[] = [
     description: "Drugstore sunscreen comparison under 500 rupees",
     published_at: "2026-05-21T12:15:00.000Z",
     duration: 58,
+    thumbnail_url:
+      "https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800&auto=format&fit=crop",
     engagement: {
       like_count: 8910,
       dislike_count: null,

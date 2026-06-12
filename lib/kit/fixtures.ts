@@ -10,6 +10,7 @@ import type { PastCollab, RateCardItem } from "./types";
 export interface ManualKitEntry {
   handle: string;
   phylloAccountId: string;
+  heroImageUrl: string | null;
   bio: string;
   location: string;
   category: string;
@@ -23,6 +24,8 @@ export const manualKits: Record<string, ManualKitEntry> = {
   aanya: {
     handle: "aanya",
     phylloAccountId: "2b3316b8-f468-4f03-8411-40b547ec7eb3",
+    heroImageUrl:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1600&auto=format&fit=crop",
     bio: "Skincare and everyday makeup for Indian skin tones. I test everything on combination skin for at least two weeks before talking about it. Audience is mostly women 18 to 34 in metro India.",
     location: "Mumbai, India",
     category: "Beauty",

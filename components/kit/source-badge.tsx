@@ -24,12 +24,19 @@ const CONFIG: Record<
   },
 };
 
-export function SourceBadge({ source }: { source: MetricSource }) {
+export function SourceBadge({
+  source,
+  className,
+}: {
+  source: MetricSource;
+  className?: string;
+}) {
   const { label, title, icon: Icon } = CONFIG[source];
   return (
     <Badge
       variant={source === "verified" ? "default" : "outline"}
       title={title}
+      className={className}
     >
       <Icon data-icon="inline-start" />
       {label}

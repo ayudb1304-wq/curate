@@ -49,7 +49,7 @@ export function AudienceSection({
   return (
     <section className="flex flex-col gap-3">
       <div className="flex items-center justify-between">
-        <h2 className="font-heading text-lg font-medium">Audience</h2>
+        <h2 className="font-heading text-xl font-medium">Audience</h2>
         <SourceBadge source={source} />
       </div>
 

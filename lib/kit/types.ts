@@ -38,6 +38,7 @@ export interface KitContentItem {
   format: string;
   description: string | null;
   url: string;
+  thumbnailUrl: string | null;
   publishedAt: string;
   likes: number | null;
   comments: number | null;
@@ -47,6 +48,7 @@ export interface KitContentItem {
 export interface KitData {
   handle: string;
   displayName: string;
+  heroImageUrl: string | null;
   bio: string;
   location: string;
   category: string;

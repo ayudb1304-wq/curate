@@ -11,7 +11,7 @@ export function RateCardSection({ rateCard }: { rateCard: RateCardItem[] }) {
   return (
     <section className="flex flex-col gap-3">
       <div className="flex items-center justify-between">
-        <h2 className="font-heading text-lg font-medium">Rates</h2>
+        <h2 className="font-heading text-xl font-medium">Rates</h2>
         <SourceBadge source="self_reported" />
       </div>
 

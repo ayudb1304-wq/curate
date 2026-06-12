@@ -52,6 +52,7 @@ export async function getKitByHandle(handle: string): Promise<KitData | null> {
   return {
     handle: manual.handle,
     displayName: profile.full_name,
+    heroImageUrl: manual.heroImageUrl ?? profile.image_url,
     bio: manual.bio,
     location: manual.location,
     category: manual.category,
@@ -78,6 +79,7 @@ export async function getKitByHandle(handle: string): Promise<KitData | null> {
       format: p.format,
       description: p.description,
       url: p.url,
+      thumbnailUrl: p.thumbnail_url,
       publishedAt: p.published_at,
       likes: p.engagement.like_count,
       comments: p.engagement.comment_count,
